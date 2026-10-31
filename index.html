@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#8f1024" />
+  <title>Weihnachtslotterie 2026</title>
+  <meta name="description" content="Familien-Weihnachtslotterie 2026 – zieh dein Los und halte dein Ergebnis geheim." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=1" />
+</head>
+<body>
+  <div class="snow" aria-hidden="true"></div>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="eyebrow">Familien-Weihnachtslotterie</div>
+      <h1>Wer beschenkt wen<br><span>zu Weihnachten 2026?</span></h1>
+      <p class="hero-copy">Wähle deinen Namen, zieh genau ein Los und halte dein Ergebnis geheim.</p>
+      <div class="stats" aria-label="Status der Ziehung">
+        <div class="stat-card"><span class="stat-value" id="drawnCount">0</span><span class="stat-label">von 6 haben gezogen</span></div>
+      </div>
+    </section>
+
+    <section class="lottery-card" id="lotteryCard">
+      <div class="step-head">
+        <div><span class="step-label">Schritt 1</span><h2>Wer bist du?</h2></div>
+        <div class="pot-icon" aria-hidden="true">🎁</div>
+      </div>
+
+      <div class="participants" id="participants" aria-live="polite"></div>
+
+      <div class="selection-panel" id="selectionPanel" hidden>
+        <div class="selected-copy"><span>Ausgewählt</span><strong id="selectedName">—</strong></div>
+        <button class="draw-button" id="drawButton" type="button"><span class="button-icon">🎟️</span>Los ziehen</button>
+        <p class="privacy-note">Jede Person kann nur einmal ziehen. Wer schon gezogen hat, bleibt für die anderen verborgen.</p>
+      </div>
+
+      <div class="locked-panel" id="lockedPanel" hidden>
+        <div class="locked-icon">🔒</div>
+        <h2>Du hast bereits gezogen</h2>
+        <p>Auf diesem Gerät ist in dieser Runde keine weitere Ziehung möglich.</p>
+      </div>
+    </section>
+
+    <section class="result-card" id="resultCard" hidden aria-live="assertive">
+      <div class="sparkle">✦</div>
+      <p class="result-kicker">Der Weihnachtsmann hat entschieden …</p>
+      <h2>Du beschenkst dieses Jahr</h2>
+      <div class="recipient-name" id="recipientName">—</div>
+      <p class="result-secret">🤫 Pssst … nicht verraten!</p>
+      <button class="close-result" id="closeResult" type="button">Ergebnis schließen</button>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./app.js?v=1"></script>
+</body>
+</html>
